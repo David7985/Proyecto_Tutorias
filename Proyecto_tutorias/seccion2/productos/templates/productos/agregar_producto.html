@@ -1,0 +1,18 @@
+{% extends 'productos/base.html' %}
+{% block title %}Agregar Tutoría{% endblock %}
+
+{% block content %}
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">Nueva Tutoría</h5>
+        <form method="post">
+            {% csrf_token %}
+            
+            {{ form.as_p }}
+            
+            <button type="submit" class="btn btn-primary mt-3">Guardar Tutoría</button>
+            <a href="{% url 'lista_productos' %}" class="btn btn-secondary mt-3 ms-2">Cancelar</a>
+        </form>
+    </div>
+</div>
+{% endblock %}
