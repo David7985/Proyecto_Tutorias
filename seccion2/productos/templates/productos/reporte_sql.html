@@ -1,0 +1,38 @@
+{% extends 'productos/base.html' %}
+{% block title %}Reporte SQL{% endblock %}
+
+{% block content %}
+<div class="card mt-4 border-warning">
+    <div class="card-header bg-warning text-dark">
+        <h5>Reporte SQL Manual</h5>
+    </div>
+    <div class="card-body">
+        <p>Listado generado usando <code>INNER JOIN</code> y <code>WHERE</code> manuales.</p>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Asignatura</th>
+                    <th>Tema</th>
+                    <th>Cupos</th>
+                    <th>Tutor</th>
+                    <th>Modalidad</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for fila in resultados %}
+                <tr>
+                    <td>{{ fila.0 }}</td>
+                    <td>{{ fila.1 }}</td>
+                    <td>{{ fila.2 }}</td>
+                    <td>{{ fila.3 }}</td>
+                    <td>{{ fila.4 }}</td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="5" class="text-center">No hay tutorías activas.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'lista_productos' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
+{% endblock %}
