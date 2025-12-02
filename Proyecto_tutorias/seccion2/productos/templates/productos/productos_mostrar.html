@@ -1,0 +1,32 @@
+{% extends 'productos/base.html' %}
+{% block title %}Detalle Tutoría{% endblock %}
+
+{% block content %}
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h5 class="card-title mb-0">Detalle de la Tutoría</h5>
+    </div>
+    <div class="card-body">
+        <h3 class="card-title">{{ tutoria.asignatura }}</h3>
+        <p class="text-muted">{{ tutoria.tema }}</p>
+        
+        <hr>
+        
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>Fecha:</strong> {{ tutoria.fecha|date:"d M Y, H:i" }}</p>
+                <p><strong>Modalidad:</strong> {{ tutoria.get_modalidad_display }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Cupos disponibles:</strong> {{ tutoria.cupos }}</p>
+                <p><strong>Tutor responsable:</strong> {{ tutoria.tutor.username }}</p>
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a href="{% url 'producto_actualizar' tutoria.id %}" class="btn btn-warning">Editar</a>
+            <a href="{% url 'lista_productos' %}" class="btn btn-secondary ms-2">Volver a la lista</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
