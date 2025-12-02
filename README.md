@@ -1,8 +1,1 @@
-# ayudantia_info1170_sec2
-proyecto en python(Django) para la clase de INFO1170  - Taller de Integracion I - Seccion 2
-
-
-cualquier duda por correo o mensaje del blackboard:
-
-
-jorge.soto2022@alu.uct.cl
+pasar = True
